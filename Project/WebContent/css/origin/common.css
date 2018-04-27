@@ -1,0 +1,29 @@
+
+.title{
+	width: 400px;
+	margin: 0px auto;
+}
+
+.login-form{
+	width: 600px;
+	margin: 0px auto;
+}
+
+.button_wrapper{
+	text-align: center;
+}
+
+.text{
+	width: 300px;
+	margin: 0px auto;
+}
+
+.link{
+	text-align: right;
+	margin-right: 40px;
+}
+
+.table{
+	width: 900px;
+	margin: 0px auto;
+}
