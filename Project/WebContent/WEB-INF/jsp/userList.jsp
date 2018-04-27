@@ -81,7 +81,7 @@
 
   <td>
   <a  class="btn btn-outline-primary" href="UserDetailServlet?id=${user.id}">詳細</a>
-  <c:if test="${userInfo.loginId == user.loginId}">
+  <c:if test="${(userInfo.loginId == 'admin')|| (userInfo.loginId == user.loginId)}">
       <a  class="btn btn-outline-success" href="UserUpdateServlet?id=${user.id}">更新</a></c:if>
   <c:if test="${userInfo.loginId =='admin'}">
       <a  class="btn btn-outline-danger" href="DeleteUserServlet?id=${user.id}">削除</a></c:if>
