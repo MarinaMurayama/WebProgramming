@@ -62,10 +62,10 @@ public class Common {
 
 		//ハッシュ生成処理
 		byte[] bytes = null;
-		try {
-			bytes = MessageDigest.getInstance(algorithm).digest(password.getBytes(charset));
+		try {                                                                      //↓文字コードも指定できる。
+			bytes = MessageDigest.getInstance(algorithm).digest(password.getBytes(charset));   //getBytesメソッドは、対象の文字列をバイト・シーケンスにエンコード化して、結果をByte型の配列として返すメソッド
 		} catch (NoSuchAlgorithmException e) {
-			// TODO 自動生成された catch ブロック
+			// 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 		String result = DatatypeConverter.printHexBinary(bytes);

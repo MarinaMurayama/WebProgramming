@@ -53,7 +53,7 @@ public class SignUpServlet extends HttpServlet {
         String passwordCheck = request.getParameter("passwordcheck");
 
         if (!password.equals(passwordCheck)) {
-            request.setAttribute("errMsg1", "入力された内容は正しくありません。");
+            request.setAttribute("errMsg1", "入力された内容は正しくあり	ません。");
     		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signUp.jsp");
     		dispatcher.forward(request, response);
       		return;

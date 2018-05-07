@@ -36,13 +36,13 @@ public class DeleteUserServlet extends HttpServlet {
 		System.out.println(id);
 
 		UserDao userDao = new UserDao();
-		User user = userDao.findByUserDetail(id);
+		User user = userDao.findByUserDetail(id); //idを使用して削除したい対象データを検索する
 
 		request.setAttribute("User", user);  //ﾘｸｴｽﾄｽｺｰﾌﾟにｲﾝｽﾀﾝｽを保存(属性名、ｲﾝｽﾀﾝｽ)
 		User u = (User)request.getAttribute("user");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/DeleteUser.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);   //削除画面にﾃﾞｰﾀを渡す。
 	}
 
 	/**
@@ -50,13 +50,13 @@ public class DeleteUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String id = request.getParameter("id");
-		System.out.println(id);
+		String id = request.getParameter("id");  //削除画面でokﾎﾞﾀﾝを押したらformでidﾃﾞｰﾀが送られてくるので取得する
+		System.out.println(id);  //念のためｺﾝｿｰﾙに出力
 
 		UserDao userDao = new UserDao();
 		userDao.delete(id);
 
-		response.sendRedirect("UserListServlet");  //responseでユーザ一覧画面に戻る
+		response.sendRedirect("UserListServlet");  //削除処理終了。もう処理することないのでﾘﾀﾞｲﾚｸﾄでﾕｰｻﾞ一覧画面へ
 
 	}
 

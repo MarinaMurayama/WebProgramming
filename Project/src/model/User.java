@@ -3,8 +3,6 @@ package model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
 import common.Common;
 
 /**
@@ -78,25 +76,15 @@ public class User {
 		return birthDate;
 	}
 
-	public String getBirthDateStr() {
+	public String getBirthDateStr() { //フォーマット修正して出力したい時に使用
 		String str = null;
-		try {
-            str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
 		return str;
 	}
 
-	public String getBirthDateFmt() {
+	public String getBirthDateFmt() {  //フォーマット修正して出力したい時に使用
 		String str = null;
-		try {
-            str = new SimpleDateFormat("yyyy年MM月dd日").format(birthDate);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+		str = new SimpleDateFormat("yyyy-MM-dd").format(birthDate);
 		return str;
 	}
 
@@ -113,14 +101,9 @@ public class User {
 		return createDate;
 	}
 
-	public String getCreateDateFmt() {
+	public String getCreateDateFmt() {   //フォーマット修正して出力(ユーザ詳細画面で使用)
 		String str = null;
-		try {
-            str = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(Common.dateTimeConversion(createDate));
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+		 str = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(Common.dateTimeConversion(createDate));
 		return str;
 	}
 
@@ -131,14 +114,9 @@ public class User {
 		return updateDate;
 	}
 
-	public String getUpdateDateFmt() {
+	public String getUpdateDateFmt() {     //フォーマット修正して出力(ユーザ詳細画面で使用)
 		String str = null;
-		try {
-            str = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(Common.dateTimeConversion(updateDate));
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+		str = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(Common.dateTimeConversion(updateDate));
 		return str;
 	}
 

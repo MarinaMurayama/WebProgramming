@@ -34,9 +34,9 @@ public class UserDao {
             String sql = "SELECT * FROM user WHERE login_id = ? and password = ?";
 
              // SELECTを実行し、結果表を取得
-            PreparedStatement pStmt = conn.prepareStatement(sql);
+            PreparedStatement pStmt = conn.prepareStatement(sql);  //ステートメント発行
             pStmt.setString(1, loginId);
-            pStmt.setString(2, Common.encryption(password));  //?の部分に入力した値をセットしている
+            pStmt.setString(2, Common.encryption(password));  //?の部分に入力した値をセットしている＆暗号化
             ResultSet rs = pStmt.executeQuery();  //ﾃﾞｰﾀﾍﾞｰｽを検索する
 
              // 主キーに紐づくレコードは1件のみなので、rs.next()は1回だけ行う
@@ -342,7 +342,7 @@ public List<User> findConditional(String loginid,String username,String birthDat
          String sql = "SELECT * FROM user where login_id not in ('admin')";  //admin以外の人を検索したいよ。
 
          if(!loginid.equals("")) {  //loginidの入力があったら実行
-        	 sql += " and login_id = '" + loginid + "'";  //sqlに格納されているSERECT文にくっつける→SELECT * FROM user where login_id not in ('admin') and login_id = '" + 入力したID + "'
+        	 sql += " and login_id = '" + loginid + "'";  //SELECT * FROM user where login_id not in ('admin') and login_id = ' 入力したID';
          }
 
          if(!username.equals("")) {
